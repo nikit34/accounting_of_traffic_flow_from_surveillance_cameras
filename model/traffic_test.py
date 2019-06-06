@@ -4,9 +4,12 @@ import numpy as np
 import cv2
 import pandas as pd
 import sys
-sys.path.insert(0,'../gui')
+sys.path.insert(0,'..\gui')
+sys.pa
+sys.path.insert(0,'..\data\cin')
 from WindowsApp import pathf
 
+print(pathf)
 # чтение видео
 cap = cv2.VideoCapture(pathf)
 # CAP_PROP_FRAME_COUNT - количество кадров в видео
@@ -17,9 +20,9 @@ width = int(width)
 height = int(height)
 print('**************************************************************')
 print('******************** Параметры видео *************************')
-print('* Количество кадров:                               ', frames_count)
-print('* FPS:                                               ', fps)
-print('* разрешение:                                ' ,width, ' x ' ,height, ' px')
+print('* Количество кадров:                                    ', frames_count)
+print('* FPS:                                                  ', fps)
+print('* разрешение:                                 ' ,width, ' x ' ,height, ' px')
 print('* Продолжительность:                                 ' ,int(frames_count/fps),' мин.')
 print('**************************************************************')
 
@@ -84,25 +87,24 @@ while True:
             Здесь синия полоса всегда выше зеленной,
             и на местности она 'дальше'. Обратная ситуация не зеркальна.
         """
-
-        # верхняя (синия) линия - граница наблюдения
+# верхняя (синия) линия - граница наблюдения
         lineypos = int(height * 0.05)
         cv2.line(image, (0, lineypos), (width, lineypos), (255, 0, 0), 5)
 
         # нижняя линия (зелено - красная), создана для счёта
-        lineypos2 = int(height * 0.3)
+        lineypos2 = int(height * 0.4)
         cv2.line(image, (0, lineypos2), (width, lineypos2), (0, 255, 0), 5)
 
 
-        # минимальная площадь для контуров в случае создания группы небольших контуров шума
-        minarea = 300
+        # минимальная площадь для контуров в случае выявления группы небольших контуров шума
+        minarea = 2570
 
         # максимальная площадь для контуров, может быть довольно большой для автобусов
-        maxbus = 4000
-        maxcar = 1400
+        maxbus = 10000
+        maxcar = 5420
 
         # максимально допустимый радиус для текущего центроида кадра, который будет считаться таким же центроидом из предыдущего кадра
-        maxrad = 25
+        maxrad = 15
         #---------------------------------------------------------------------------------------------
 
 
@@ -384,3 +386,6 @@ cv2.destroyAllWindows()
 
 # сохраняет фрейм данных в CSV-файл для последующего анализа
 df.to_csv('../data/cout/test0.csv', sep=',')
+
+
+from WindowsApp import *

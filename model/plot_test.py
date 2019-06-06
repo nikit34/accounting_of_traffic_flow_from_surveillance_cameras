@@ -6,11 +6,11 @@ import pandas as pd
 import cv2
 import random
 import sys
-sys.path.insert(0,'../gui')
-from WindowsApp import file_p
+sys.path.extend(0,'..\gui')
+from WindowsApp import pathf
 
 # чтение видео
-cap = cv2.VideoCapture(file_p)
+cap = cv2.VideoCapture(pathf)
 ret, frame = cap.read()
 ratio = .5  # коэффициент изменения размера
 image = cv2.resize(frame, (0, 0), None, ratio, ratio)  # изменить размер изображения
@@ -43,4 +43,5 @@ plt.legend(bbox_to_anchor=(1, 1.2), fontsize='x-small')  # расположен�
 plt.show()
 fig1.savefig('../data/cout/test0.png')  # сохраняет изображение
 
-import map_test
+
+from WindowsApp import *

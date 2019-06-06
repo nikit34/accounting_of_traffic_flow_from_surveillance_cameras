@@ -2,6 +2,8 @@
 import pandas as pd
 import numpy as np
 from math import sqrt
+import sys
+sys.path.extend(0,'..\gui')
 
 data=pd.read_csv("../data/cout/test0.csv")
 del data['Frames']
@@ -43,3 +45,6 @@ type_idn=pd.Series(data=type_idn)
 np.fill_diagonal(data.values, type_idn)
 
 data.to_csv("../data/cout/out_data.csv")
+
+
+from WindowsApp import *
