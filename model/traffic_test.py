@@ -4,14 +4,14 @@ import numpy as np
 import cv2
 import pandas as pd
 import sys
-sys.path.insert(0,'..\gui')
-sys.pa
-sys.path.insert(0,'..\data\cin')
-from WindowsApp import pathf
 
-print(pathf)
+sys.path.insert(0,'..\gui')
+file = open(r'..\buffer.txt', 'r')
+parf=file.read().split(':')
+
+print(parf[0])
 # чтение видео
-cap = cv2.VideoCapture(pathf)
+cap = cv2.VideoCapture(str(parf[0]))
 # CAP_PROP_FRAME_COUNT - количество кадров в видео
 frames_count, fps, width, height = cap.get(cv2.CAP_PROP_FRAME_COUNT), cap.get(cv2.CAP_PROP_FPS), cap.get(
     cv2.CAP_PROP_FRAME_WIDTH), cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
@@ -87,7 +87,7 @@ while True:
             Здесь синия полоса всегда выше зеленной,
             и на местности она 'дальше'. Обратная ситуация не зеркальна.
         """
-# верхняя (синия) линия - граница наблюдения
+        # верхняя (синия) линия - граница наблюдения
         lineypos = int(height * 0.05)
         cv2.line(image, (0, lineypos), (width, lineypos), (255, 0, 0), 5)
 
@@ -97,14 +97,17 @@ while True:
 
 
         # минимальная площадь для контуров в случае выявления группы небольших контуров шума
-        minarea = 2570
-
+        # minarea = 2570
+        minarea =int(parf[1])
         # максимальная площадь для контуров, может быть довольно большой для автобусов
-        maxbus = 10000
-        maxcar = 5420
+        # maxbus = 10000
+        maxbus = int(parf[2])
+        # maxcar = 5420
+        maxcar = int(parf[3])
 
         # максимально допустимый радиус для текущего центроида кадра, который будет считаться таким же центроидом из предыдущего кадра
-        maxrad = 15
+        # maxrad = 15
+        maxrad = int(parf[4])
         #---------------------------------------------------------------------------------------------
 
 
@@ -388,4 +391,4 @@ cv2.destroyAllWindows()
 df.to_csv('../data/cout/test0.csv', sep=',')
 
 
-from WindowsApp import *
+import WindowsApp

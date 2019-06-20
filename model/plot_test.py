@@ -6,11 +6,14 @@ import pandas as pd
 import cv2
 import random
 import sys
-sys.path.extend(0,'..\gui')
-from WindowsApp import pathf
+
+sys.path.insert(0,'..\gui')
+
+file = open(r'..\buffer.txt', 'r')
+parf=file.read().split(':')
 
 # чтение видео
-cap = cv2.VideoCapture(pathf)
+cap = cv2.VideoCapture(parf[0])
 ret, frame = cap.read()
 ratio = .5  # коэффициент изменения размера
 image = cv2.resize(frame, (0, 0), None, ratio, ratio)  # изменить размер изображения
@@ -44,4 +47,4 @@ plt.show()
 fig1.savefig('../data/cout/test0.png')  # сохраняет изображение
 
 
-from WindowsApp import *
+import WindowsApp

@@ -6,8 +6,7 @@ import webbrowser
 import random
 from itertools import product
 import sys
-
-sys.path.extend(0,'..\gui')
+sys.path.insert(0,'..\gui')
 
 
 
@@ -53,4 +52,4 @@ webbrowser.open(url)
 data.to_csv("../data/cout/Moscow_cam.csv")
 
 
-from WindowsApp import *
+import WindowsApp
