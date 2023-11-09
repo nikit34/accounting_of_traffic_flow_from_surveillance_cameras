@@ -22,8 +22,8 @@ def writestr(pathf,flag):
 def traffic_(pathf):
     try:
         import traffic_test
-    except ImportError:
-        print('ImportError in traffic')
+    except ImportError as e:
+        print('ImportError in traffic ', e)
 
 
 def plot_(pathf):
