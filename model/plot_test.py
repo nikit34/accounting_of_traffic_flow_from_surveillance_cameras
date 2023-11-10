@@ -21,8 +21,8 @@ image = cv2.resize(frame, (0, 0), None, ratio, ratio)  # изменить раз
 
 df = pd.read_csv('..' + os.sep + 'data' + os.sep + 'cout' + os.sep + 'test0.csv')  # читает CSV-файл и делает его фреймом данных
 rows, columns = df.shape  # форма данных
-print('Rows:     ',rows)
-print('Columns:  ',columns)
+print('Rows:     ', rows)
+print('Columns:  ', columns)
 
 fig1 = plt.figure(figsize=(10, 8))  # ширина и высота изображения
 plt.imshow(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))  # снимает первый кадр видео
