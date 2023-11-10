@@ -6,7 +6,7 @@ import webbrowser
 import random
 from itertools import product
 import sys
-sys.path.insert(0,'..\gui')
+sys.path.insert(0,'..' + os.sep + 'gui')
 
 
 
@@ -43,13 +43,13 @@ marker_cluster = MarkerCluster().add_to(map)
 for lat, lon, elevation in zip(lat, lon, elevation):
     folium.CircleMarker(location=[lat, lon], radius = 9, popup=str(elevation)+" m", fill_color=color_change(elevation), color="gray", fill_opacity = 0.9).add_to(marker_cluster)
 
-map.save("../data/cout/map0_test.html")
-path = os.path.abspath('../data/cout/map0_test.html')
+map.save(".." + os.sep + "data" + os.sep + "cout" + os.sep + "map0_test.html")
+path = os.path.abspath('..' + os.sep + 'data' + os.sep + 'cout' + os.sep + 'map0_test.html')
 url = 'file://' + path
 
 webbrowser.open(url)
 
-data.to_csv("../data/cout/Moscow_cam.csv")
+data.to_csv(".." + os.sep + "data" + os.sep + "cout" + os.sep + "Moscow_cam.csv")
 
 
 import WindowsApp

@@ -4,9 +4,10 @@ import numpy as np
 import cv2
 import pandas as pd
 import sys
+import os
 
-sys.path.insert(0,'..\gui')
-file = open(r'..\buffer.txt', 'r')
+sys.path.insert(0,'..' + os.sep + 'gui')
+file = open(r'..' + os.sep + 'buffer.txt', 'r')
 parf=file.read().split(':')
 
 print(parf[0])
@@ -46,8 +47,8 @@ ratio = .5
 image = cv2.resize(frame, (0, 0), None, ratio, ratio)  # сжатие видео на коэффициент ratio
 width2, height2, channels = image.shape
 # запись
-video = cv2.VideoWriter('../data/cout/test0.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), fps, (height2, width2), 1)
-video_text = cv2.VideoWriter('../data/cout/testtext0.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), fps, (700,700), 1)
+video = cv2.VideoWriter('..' + os.sep + 'data' + os.sep + 'cout' + os.sep + 'test0.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), fps, (height2, width2), 1)
+video_text = cv2.VideoWriter('..' + os.sep + 'data' + os.sep + 'cout' + os.sep + 'testtext0.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), fps, (700,700), 1)
 
 while True:
     ret, frame = cap.read()
@@ -388,7 +389,7 @@ cap.release()
 cv2.destroyAllWindows()
 
 # сохраняет фрейм данных в CSV-файл для последующего анализа
-df.to_csv('../data/cout/test0.csv', sep=',')
+df.to_csv('..' + os.sep + 'data' + os.sep + 'cout' + os.sep + 'test0.csv', sep=',')
 
 
 import WindowsApp

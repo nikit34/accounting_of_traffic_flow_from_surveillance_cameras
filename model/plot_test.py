@@ -6,10 +6,11 @@ import pandas as pd
 import cv2
 import random
 import sys
+import os
 
-sys.path.insert(0,'..\gui')
+sys.path.insert(0,'..' + os.sep + 'gui')
 
-file = open(r'..\buffer.txt', 'r')
+file = open(r'..' + os.sep + 'buffer.txt', 'r')
 parf=file.read().split(':')
 
 # чтение видео
@@ -18,7 +19,7 @@ ret, frame = cap.read()
 ratio = .5  # коэффициент изменения размера
 image = cv2.resize(frame, (0, 0), None, ratio, ratio)  # изменить размер изображения
 
-df = pd.read_csv('../data/cout/test0.csv')  # читает CSV-файл и делает его фреймом данных
+df = pd.read_csv('..' + os.sep + 'data' + os.sep + 'cout' + os.sep + 'test0.csv')  # читает CSV-файл и делает его фреймом данных
 rows, columns = df.shape  # форма данных
 print('Rows:     ',rows)
 print('Columns:  ',columns)
@@ -44,7 +45,7 @@ plt.xlabel('X Position')
 plt.ylabel('Y Position')
 plt.legend(bbox_to_anchor=(1, 1.2), fontsize='x-small')  # расположение легенды и шрифт
 plt.show()
-fig1.savefig('../data/cout/test0.png')  # сохраняет изображение
+fig1.savefig('..' + os.sep + 'data' + os.sep + 'cout' + os.sep + 'test0.png')  # сохраняет изображение
 
 
 import WindowsApp

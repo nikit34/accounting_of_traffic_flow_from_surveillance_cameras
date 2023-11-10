@@ -3,14 +3,15 @@ import math
 from PIL import ImageTk
 from PIL import Image
 import sys
+import os
 
-sys.path.insert(0,'..\model')
+sys.path.insert(0,'..' + os.sep + 'model')
 
 global pathf
 global f
 
 def writestr(pathf,flag):
-    f = open(r'..\buffer.txt', 'w',encoding='utf-8')
+    f = open(r'..' + os.sep + 'buffer.txt', 'w', encoding='utf-8')
     f.write(str(pathf))
     f.close()
     if flag==True:
@@ -47,7 +48,7 @@ def data_():
         print('Error in data')
 
 def butd(pf,bu1,bu2,pan1,pan2,pan3,pan4):
-    pathf='..\\data\\cin\\'+pf+':'+pan1+':'+pan2+':'+pan3+':'+pan4
+    pathf='..' + os.sep + 'data' + os.sep + 'cin' + os.sep + pf+':'+pan1+':'+pan2+':'+pan3+':'+pan4
     global image1
     image1=ImageTk.PhotoImage(file="СТАРТ1.png")
     button1=Button(bu1, image=image1, bg='gray', borderwidth=2, relief="raised", command=lambda:writestr(pathf,True))

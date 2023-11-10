@@ -3,11 +3,13 @@ import pandas as pd
 import numpy as np
 from math import sqrt
 import sys
-sys.path.insert(0,'..\gui')
+import os
 
 
+sys.path.insert(0,'..' + os.sep + 'gui')
 
-data=pd.read_csv("../data/cout/test0.csv")
+
+data=pd.read_csv(".." + os.sep + "data" + os.sep + "cout" + os.sep + "test0.csv")
 del data['Frames']
 data=data.transpose().fillna('0')
 data.head()
@@ -46,7 +48,7 @@ data=pd.DataFrame(0,index=list(range(len(idn))),columns=dist)
 type_idn=pd.Series(data=type_idn)
 np.fill_diagonal(data.values, type_idn)
 
-data.to_csv("../data/cout/out_data.csv")
+data.to_csv(".." + os.sep + "data" + os.sep + "cout" + os.sep + "out_data.csv")
 
 
 import WindowsApp
