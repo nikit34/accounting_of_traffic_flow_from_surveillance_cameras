@@ -1,5 +1,3 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
 import numpy as np
 import cv2
 import pandas as pd
@@ -388,6 +386,3 @@ cv2.destroyAllWindows()
 
 # сохраняет фрейм данных в CSV-файл для последующего анализа
 df.to_csv('..' + os.sep + 'data' + os.sep + 'cout' + os.sep + 'test0.csv', sep=',')
-
-
-import WindowsApp

@@ -1,9 +1,8 @@
 from tkinter import *
-import math
 from PIL import ImageTk
-from PIL import Image
 import sys
 import os
+
 
 sys.path.insert(0, '..' + os.sep + 'model')
 
@@ -96,17 +95,17 @@ def main():
     entry.place(relx=0.105, rely=0.15, relwidth=0.15, relheight=0.04)
 
     pan = Label(root, bg='blue', borderwidth=2, relief="raised")
-    pan.place(relx=0.105, rely=0.22, relwidth=0.15, relheight=0.3)
+    pan.place(relx=0.105, rely=0.22, relwidth=0.15, relheight=0.15)
 
     entry01 = Entry(pan, font=8)
-    entry01.place(relx=0.1, rely=0.07, relwidth=0.4, relheight=0.14)
+    entry01.place(relx=0.1, rely=0.07, relwidth=0.4, relheight=0.3)
     t01 = Label(pan, text='MIN AREA')
-    t01.place(relx=0.55, rely=0.09, relwidth=0.45, relheight=0.1)
+    t01.place(relx=0.55, rely=0.09, relwidth=0.45, relheight=0.3)
 
     entry02 = Entry(pan, font=8)
-    entry02.place(relx=0.1, rely=0.77, relwidth=0.4, relheight=0.14)
+    entry02.place(relx=0.1, rely=0.57, relwidth=0.4, relheight=0.3)
     t02 = Label(pan, text='RAD CENT')
-    t02.place(relx=0.55, rely=0.79, relwidth=0.45, relheight=0.1)
+    t02.place(relx=0.55, rely=0.59, relwidth=0.45, relheight=0.3)
 
     image5 = ImageTk.PhotoImage(file="ЗАГРУЗИТЬ.png")
     button5 = Button(root, image=image5, bg='gray', borderwidth=2, relief="raised",

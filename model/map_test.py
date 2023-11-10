@@ -4,10 +4,10 @@ import pandas as pd
 import os
 import webbrowser
 import random
-from itertools import product
 import sys
-sys.path.insert(0,'..' + os.sep + 'gui')
 
+
+sys.path.insert(0,'..' + os.sep + 'gui')
 
 
 la=pd.Series([random.uniform(0.1438333,1.021388)+55 for _ in range(100)])
@@ -15,11 +15,11 @@ lo=pd.Series([random.uniform(0.80325001, 1.96777778)+ 36 for _ in range(100)])
 el=pd.Series([random.uniform(1000, 6000) for _ in range(100)])
 
 
-
-
-dat={'LAT':la,
-     'LON':lo,
-     'ELEV':el}
+dat = {
+    'LAT': la,
+    'LON': lo,
+    'ELEV': el
+}
 
 data = pd.DataFrame(dat)
 
@@ -50,6 +50,3 @@ url = 'file://' + path
 webbrowser.open(url)
 
 data.to_csv(".." + os.sep + "data" + os.sep + "cout" + os.sep + "Moscow_cam.csv")
-
-
-import WindowsApp

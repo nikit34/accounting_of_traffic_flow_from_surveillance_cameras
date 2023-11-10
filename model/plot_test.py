@@ -1,6 +1,3 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
-import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import cv2
@@ -46,6 +43,3 @@ plt.ylabel('Y Position')
 plt.legend(bbox_to_anchor=(1, 1.2), fontsize='x-small')  # расположение легенды и шрифт
 plt.show()
 fig1.savefig('..' + os.sep + 'data' + os.sep + 'cout' + os.sep + 'test0.png')  # сохраняет изображение
-
-
-import WindowsApp
